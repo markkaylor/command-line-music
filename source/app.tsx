@@ -249,7 +249,15 @@ export default function App(props: AppProps) {
 			</Box>
 
 			{/* Track info and controls */}
-			<Box flexDirection="column" paddingY={1}>
+			<Box
+				flexDirection="column"
+				paddingY={1}
+				borderStyle="single"
+				borderTop
+				borderRight={false}
+				borderLeft={false}
+				borderBottom={false}
+			>
 				<Box flexDirection="column">
 					<Text inverse bold>
 						{currentTrack?.title}
