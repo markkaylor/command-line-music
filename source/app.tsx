@@ -5,6 +5,7 @@ import path from 'path';
 import {fileURLToPath} from 'url';
 import createSoundPlayer from 'play-sound';
 import treeKill from 'tree-kill';
+import type {Result as Cli} from 'meow';
 
 import * as React from 'react';
 import {Text, Box} from 'ink';
@@ -15,7 +16,11 @@ const __dirname = path.dirname(__filename);
 
 const player = createSoundPlayer();
 
-export default function App() {
+type AppProps = {
+	cli: Cli<{}>;
+};
+
+export default function App(props: AppProps) {
 	const [currentTrack, setCurrentTrack] = React.useState<Track>();
 	const [logs, setLogs] = React.useState('');
 	const [audio, setAudio] = React.useState<ChildProcess | null>(null);
@@ -108,7 +113,7 @@ export default function App() {
 		/**
 		 * Parse the commands
 		 */
-		const commands = process.argv.slice(2);
+		const commands = props.cli.input;
 		if (commands.length === 0) {
 			console.error(
 				'Did you forget your command? Try something like: clm yarn install',
@@ -243,10 +248,10 @@ export default function App() {
 				<Text>{logs}</Text>
 			</Box>
 
-			{/* Sticky track info and controls */}
+			{/* Track info and controls */}
 			<Box flexDirection="column" paddingY={1}>
 				<Box flexDirection="column">
-					<Text inverse bold color="blue">
+					<Text inverse bold>
 						{currentTrack?.title}
 					</Text>
 					<Text italic>{currentTrack?.artist}</Text>
