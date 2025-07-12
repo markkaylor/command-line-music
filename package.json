@@ -1,8 +1,12 @@
 {
-	"name": "clm",
+	"name": "command-line-music",
 	"version": "0.0.0",
+	"description": "iPod-shuffle style audio player for the command line",
+	"keywords": ["music", "audio", "player", "cli", "command-line", "terminal"],
 	"license": "MIT",
-	"bin": "dist/cli.js",
+	"bin": {
+		"clm": "dist/cli.js"
+	},
 	"type": "module",
 	"engines": {
 		"node": ">=16"
@@ -13,8 +17,15 @@
 		"test": "prettier --check . && xo && ava"
 	},
 	"files": [
-		"dist"
+		"dist",
+		"music"
 	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/markkaylor/command-line-music.git"
+	},
+	"homepage": "https://github.com/markkaylor/command-line-music#readme",
+	"author": "Mark Kaylor",
 	"dependencies": {
 		"ink": "^4.1.0",
 		"ink-select-input": "^6.0.0",

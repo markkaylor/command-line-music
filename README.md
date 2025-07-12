@@ -1,6 +1,5 @@
-# WIP
-
 # Command Line Music
+![Command Line Music](README_image.png)
 
 iPod-shuffle style audio player for the command line.
 
@@ -10,12 +9,16 @@ A command line interface is available to stop/start playing music, choose a new 
 
 ## Install
 
-```bash
-npm install --global clm
+From the root of this directory, build the project
+
+```
+yarn build
 ```
 
-```bash
-yarn global add clm
+Install the command line interface globally
+
+```
+npm install -g .
 ```
 
 ## CLI
